@@ -18,38 +18,38 @@ toggleBtn.addEventListener('click', () => {
     }
 });
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // prevent default form submit
+// document.getElementById('contactForm').addEventListener('submit', function(e) {
+//     e.preventDefault(); // prevent default form submit
 
-    let formData = new FormData(this);
+//     let formData = new FormData(this);
 
-    fetch('../php/send_email.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        if(data.toLowerCase().includes('message sent')) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Sent!',
-                text: 'Your message has been sent successfully.'
-            });
-            this.reset(); // clear form
-        } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: data
-            });
-        }
-    })
-    .catch(error => {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Something went wrong. Please try again later.'
-        });
-        console.error('Error:', error);
-    });
-});
+//     fetch('../php/send_email.php', {
+//         method: 'POST',
+//         body: formData
+//     })
+//     .then(response => response.text())
+//     .then(data => {
+//         if(data.toLowerCase().includes('message sent')) {
+//             Swal.fire({
+//                 icon: 'success',
+//                 title: 'Sent!',
+//                 text: 'Your message has been sent successfully.'
+//             });
+//             this.reset(); // clear form
+//         } else {
+//             Swal.fire({
+//                 icon: 'error',
+//                 title: 'Oops...',
+//                 text: data
+//             });
+//         }
+//     })
+//     .catch(error => {
+//         Swal.fire({
+//             icon: 'error',
+//             title: 'Error',
+//             text: 'Something went wrong. Please try again later.'
+//         });
+//         console.error('Error:', error);
+//     });
+// });
